@@ -34,8 +34,6 @@ const App = () => {
     try {
       await axios.delete(`http://localhost:5000/tasks/${taskId}`);
       setTasks(tasks.filter((task) => task._id !== taskId));
-    } catch (error) {
-      console.error('Error deleting task:', error);
     }
   };
 
