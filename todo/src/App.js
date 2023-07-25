@@ -10,7 +10,7 @@ const App = () => {
       const response = await axios.get('http://localhost:5000/tasks');
       setTasks(response.data);
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+                 error('Error fetching tasks:', error);
     }
   };
 
@@ -26,7 +26,7 @@ const App = () => {
       setTasks([...tasks, response.data]);
       setNewTask('');
     } catch (error) {
-      console.error('Error creating task:', error);
+               error('Error creating task:', error);
     }
   };
 
@@ -34,6 +34,8 @@ const App = () => {
     try {
       await axios.delete(`http://localhost:5000/tasks/${taskId}`);
       setTasks(tasks.filter((task) => task._id !== taskId));
+    } catch (error) {
+                 error('Error deleting task:', error);
     }
   };
 
